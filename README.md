@@ -17,13 +17,21 @@ Na maioria das operações corporativas, a conferência de faturamento depende d
 
 Para resolver esse problema sem depender de modelos opacos de Machine Learning, implementei o método **Z-Score Móvel Deslocado (*Shifted Rolling Z-Score*)**:
 
-<img width="158" height="68" alt="image" src="https://github.com/user-attachments/assets/d84b053d-586e-4e0f-bc88-86cfb032e20e" />
-
+$$Z_t = \frac{X_t - \mu_{t-1}}{\sigma_{t-1}}$$
 
 ### Diferenciais Técnicos da Implementação:
 * **Janela Móvel Dinâmica (*Rolling Window*):** Recalcula continuamente a média ($\mu$) e o desvio-padrão ($\sigma$) com base apenas nos últimos $N$ dias (configurável de 7 a 30 dias), adaptando-se ao ritmo atual.
 * **Prevenção de Contaminação (`shift(1)`):** O faturamento de hoje ($X_t$) é julgado estritamente contra o histórico fechado até ontem ($t - 1$). Isso impede que um erro grave de digitação ou lote duplicado distorça a própria régua estatística no dia em que ocorre.
 * **Relatório Executivo em Excel (`.xlsx`):** Exportação nativa das anomalias isoladas com cálculo do impacto financeiro em reais (`R$`) e diagnóstico automatizado.
+
+---
+
+## 🔒 Privacidade e Segurança dos Dados
+
+Esta aplicação foi desenvolvida com foco total na segurança da informação corporativa:
+* **Processamento 100% em Memória (RAM):** Os dados enviados via upload de planilhas são processados estritamente na memória volátil da sessão. **Nenhum dado é salvo em banco de dados, gravado em disco ou compartilhado com terceiros.**
+* **Auditoria Aberta:** Como o código-fonte é 100% aberto neste repositório, qualquer equipe técnica pode inspecionar o script e verificar essa blindagem. 
+* *Boa Prática:* Para testes com dados reais de empresas, recomendamos a anonimização prévia dos registros.
 
 ---
 
