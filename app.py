@@ -98,8 +98,7 @@ def gerar_dados_exemplo(dias, faturamento_base):
 # 4. Exibo meu banner de apresentação de portfólio no topo da aplicação
 st.markdown("""
 <div class="portfolio-badge">
-    <strong>📌 Projeto de Portfólio & Prova de Conceito (PoC)</strong> — Desenvolvi esta aplicação
-    (<strong>Keven Soares</strong>) para demonstrar na prática como automatizar a detecção de anomalias
+    <strong>📌 Projeto de Portfólio & Prova de Conceito (PoC)</strong> — Desenvolvi esta aplicação para demonstrar na prática como automatizar a detecção de anomalias
     financeiras e operacionais utilizando <strong>Python, Pandas, Estatística Aplicada (Z-Score Móvel) e Plotly</strong>.
     <em>Os dados padrão exibidos são sintéticos para fins de demonstração.</em>
 </div>
